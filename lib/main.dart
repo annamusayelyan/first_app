@@ -9,9 +9,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(home: Scaffold(
       appBar: AppBar(
         title: Text('first name'),
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.blue,
       ),
-      body:Container(),
+      body:Column(
+        children:<Widget>[
+      RaisedButton(
+      child: Text('Press' , style: TextStyle(color: Colors.black),),
+      color: Colors.red,
+      onPressed: (){},
+    ),
+          Card(
+            child: Column(
+              children: <Widget>[
+              Image.asset('assets/food.jpg'),
+              Text('Delicious')
+            ],
+            )
+          )
+        ],
+      ),
     ));
   }
 }
