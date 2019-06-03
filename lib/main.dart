@@ -1,33 +1,43 @@
 import 'package:flutter/material.dart';
-
+import 'package:flrst_app/products.dart';
 main() {
-  runApp (MyApp());
+  runApp(MyApp());
 }
-
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+}
+class _MyAppState extends State<MyApp> {
+  List<String> _products = ['Food Tester'];
   build(context) {
-    return MaterialApp(home: Scaffold(
-      appBar: AppBar(
-        title: Text('first name'),
-        backgroundColor: Colors.blue,
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('first app'),
+          backgroundColor: Colors.deepPurpleAccent,
+        ),
+        body: Column(
+          children: <Widget>[
+            RaisedButton(
+              child: Text(
+                'Press',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              color: Colors.red,
+              onPressed: () {
+                setState(() {
+                  _products.add('Advanced food tester');
+                });
+              },
+            ),
+            Products(_products),
+          ],
+        ),
       ),
-      body:Column(
-        children:<Widget>[
-      RaisedButton(
-      child: Text('Press' , style: TextStyle(color: Colors.black),),
-      color: Colors.red,
-      onPressed: (){},
-    ),
-          Card(
-            child: Column(
-              children: <Widget>[
-              Image.asset('assets/food.jpg'),
-              Text('Delicious')
-            ],
-            )
-          )
-        ],
-      ),
-    ));
+    );
   }
 }
